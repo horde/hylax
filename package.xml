@@ -10,7 +10,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-01-31</date>
+ <date>2017-10-13</date>
  <version>
   <release>1.0.0alpha1</release>
   <api>1.0.0alpha1</api>
@@ -31,11 +31,11 @@
     <file name="covers.php.dist" role="horde" />
     <file name="prefs.php" role="horde" />
    </dir> <!-- /config -->
-   <dir name="docs">
+   <dir name="doc">
     <file name="COPYING" role="doc" />
     <file name="INSTALL" role="doc" />
     <file name="TODO" role="doc" />
-   </dir> <!-- /docs -->
+   </dir> <!-- /doc -->
    <dir name="lib">
     <dir name="Driver">
      <file name="hylafax.php" role="horde" />
@@ -130,21 +130,21 @@
    <install as="hylax/compose.php" name="compose.php" />
    <install as="hylax/folder.php" name="folder.php" />
    <install as="hylax/img.php" name="img.php" />
-   <install as="skeleton/index.php" name="index.php" />
+   <install as="hylax/index.php" name="index.php" />
    <install as="hylax/print.php" name="print.php" />
    <install as="hylax/send.php" name="send.php" />
    <install as="hylax/summary.php" name="summary.php" />
    <install as="hylax/view.php" name="view.php" />
-   <install as="skeleton/config/.htaccess" name="config/.htaccess" />
-   <install as="skeleton/config/conf.xml" name="config/conf.xml" />
+   <install as="hylax/config/.htaccess" name="config/.htaccess" />
+   <install as="hylax/config/conf.xml" name="config/conf.xml" />
    <install as="hylax/config/covers.php.dist" name="config/covers.php.dist" />
-   <install as="skeleton/config/prefs.php" name="config/prefs.php" />
-   <install as="COPYING" name="docs/COPYING" />
-   <install as="INSTALL" name="docs/INSTALL" />
-   <install as="TODO" name="docs/TODO" />
-   <install as="skeleton/lib/.htaccess" name="lib/.htaccess" />
-   <install as="skeleton/lib/Application.php" name="lib/Application.php" />
-   <install as="skeleton/lib/Driver.php" name="lib/Driver.php" />
+   <install as="hylax/config/prefs.php" name="config/prefs.php" />
+   <install as="COPYING" name="doc/COPYING" />
+   <install as="INSTALL" name="doc/INSTALL" />
+   <install as="TODO" name="doc/TODO" />
+   <install as="hylax/lib/.htaccess" name="lib/.htaccess" />
+   <install as="hylax/lib/Application.php" name="lib/Application.php" />
+   <install as="hylax/lib/Driver.php" name="lib/Driver.php" />
    <install as="hylax/lib/Hylax.php" name="lib/Hylax.php" />
    <install as="hylax/lib/Image.php" name="lib/Image.php" />
    <install as="hylax/lib/Storage.php" name="lib/Storage.php" />
@@ -166,7 +166,7 @@
    <install as="hylax/scripts/spandsp/faxrcvd" name="scripts/spandsp/faxrcvd" />
    <install as="hylax/scripts/sql/hylax.mssql.sql" name="scripts/sql/hylax.mssql.sql" />
    <install as="hylax/scripts/sql/hylax.sql" name="scripts/sql/hylax.sql" />
-   <install as="skeleton/templates/.htaccess" name="templates/.htaccess" />
+   <install as="hylax/templates/.htaccess" name="templates/.htaccess" />
    <install as="hylax/templates/compose/compose.html" name="templates/compose/compose.html" />
    <install as="hylax/templates/fax/fax.html" name="templates/fax/fax.html" />
    <install as="hylax/templates/folder/folder.html" name="templates/folder/folder.html" />
@@ -175,7 +175,7 @@
    <install as="hylax/themes/default/graphics/fax.png" name="themes/default/graphics/fax.png" />
    <install as="hylax/themes/default/graphics/folder.png" name="themes/default/graphics/folder.png" />
    <install as="hylax/themes/default/graphics/hylax.png" name="themes/default/graphics/hylax.png" />
-   </filelist>
+  </filelist>
  </phprelease>
  <changelog>
   <release>
@@ -187,7 +187,7 @@
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2017-01-31</date>
+   <date>2017-10-13</date>
    <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
    <notes>
 * Initial release.
