@@ -10,7 +10,7 @@
   <email>jan@horde.org</email>
   <active>yes</active>
  </lead>
- <date>2017-10-17</date>
+ <date>2017-10-27</date>
  <version>
   <release>1.0.0alpha1</release>
   <api>1.0.0alpha1</api>
@@ -32,6 +32,7 @@
     <file name="prefs.php" role="horde" />
    </dir> <!-- /config -->
    <dir name="doc">
+    <file name="CHANGES" role="doc" />
     <file name="INSTALL.rst" role="doc" />
     <file name="TODO.rst" role="doc" />
    </dir> <!-- /doc -->
@@ -132,6 +133,7 @@
    <install as="hylax/config/conf.xml" name="config/conf.xml" />
    <install as="hylax/config/covers.php.dist" name="config/covers.php.dist" />
    <install as="hylax/config/prefs.php" name="config/prefs.php" />
+   <install as="CHANGES" name="doc/CHANGES" />
    <install as="INSTALL.rst" name="doc/INSTALL.rst" />
    <install as="TODO.rst" name="doc/TODO.rst" />
    <install as="hylax/folder.php" name="folder.php" />
@@ -187,7 +189,7 @@
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2017-10-17</date>
+   <date>2017-10-27</date>
    <license uri="http://www.horde.org/licenses/gpl">GPL-2.0</license>
    <notes>
 * Initial release.
