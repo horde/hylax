@@ -1,7 +1,7 @@
 {
     "name": "horde/hylax",
     "description": "Fax frontend application",
-    "type": "project",
+    "type": "horde-application",
     "homepage": "https://www.horde.org",
     "license": "GPL-2.0",
     "authors": [
@@ -12,20 +12,18 @@
         }
     ],
     "version": "1.0.0alpha1",
-    "time": "2017-11-11",
+    "time": "2020-10-27",
     "repositories": [
         {
-            "type": "pear",
-            "url": "https://pear.horde.org"
+            "type": "composer",
+            "url": "https://horde-satis.maintaina.com"
         }
     ],
     "require": {
+        "horde/horde-installer-plugin": "dev-master",
         "php": "^5.3"
     },
-    "replace": {
-        "pear-pear.horde.org/hylax": "1.*",
-        "pear-horde/hylax": "1.*"
-    },
+    "suggest": {},
     "autoload": {
         "psr-0": {
             "hylax": "lib/"
