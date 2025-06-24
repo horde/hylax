@@ -39,7 +39,7 @@ $form->addHidden('', 'fax_id', 'int', false);
 $form->addVariable(_("Fax destination"), 'fax_number', 'text', true, false, null, array('/^\d+$/'));
 
 if ($form->validate($vars)) {
-    $info = $form->getInfo($vars, $info);
+    $info = $form->getInfo($vars);
     $send = $hylax->storage->send($info['fax_id'], $info['fax_number']);
     if (is_a($send, 'PEAR_Error')) {
         $notification->push(sprintf(_("Could not send fax ID \"%s\". %s"), $info['fax_id'], $send->getMessage()), 'horde.error');
