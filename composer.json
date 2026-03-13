@@ -20,13 +20,17 @@
         }
     ],
     "require": {
-        "horde/horde-installer-plugin": "dev-master",
-        "php": "^5.3"
+        "php": "^8",
+        "horde/base": "^6",
+        "horde/horde-installer-plugin": "dev-master"
     },
     "suggest": {},
     "autoload": {
         "psr-0": {
             "hylax": "lib/"
+        },
+        "psr-4": {
+            "Horde\\Hylax\\": "src/"
         }
     }
 }
