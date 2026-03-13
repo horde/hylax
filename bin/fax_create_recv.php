@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+use Horde\Argv\Parser;
+
 require_once __DIR__ . '/../lib/Application.php';
 $hylax = Horde_Registry::appInit('hylax', array('cli' => true));
 
@@ -8,14 +10,19 @@ $hylax = Horde_Registry::appInit('hylax', array('cli' => true));
 $info = array('fax_type' => 0,
               'fax_user' => '');
 
-/* Get the arguments. The first argument is the filename from which the job ID
- * is obtained, in the format 'recvq/faxNNNNN.tif'. */
-$args = Console_Getopt::readPHPArgv();
-if (isset($args[1])) {
-    $info['fax_id'] = $args[1];
+/* Parse arguments using Horde\Argv\Parser for positional arguments */
+$parser = new Parser([
+    'usage' => '%prog <fax_id> <filename>',
+    'description' => 'Create incoming fax record in Hylax storage'
+]);
+
+list($opts, $args) = $parser->parseArgs();
+
+if (count($args) >= 1) {
+    $info['fax_id'] = $args[0];
 }
-if (isset($args[2])) {
-    $file = $args[2];
+if (count($args) >= 2) {
+    $file = $args[1];
     $info['job_id'] = (int)substr($file, 9, -4);
 }
 

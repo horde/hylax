@@ -23,4 +23,12 @@ license:
   uri: http://www.horde.org/licenses/gpl
 dependencies:
   required:
-    php: ^5.3
+    php: ^8
+    composer:
+      horde/base: ^6
+autoload:
+  psr-0:
+    hylax: lib/
+  psr-4:
+    Horde\Hylax\: src/
+vendor: horde
