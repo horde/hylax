@@ -1,14 +1,14 @@
 <div id="menu">
- <tag:menu />
+ <?php echo $this->menu ?>
 </div>
 <br />
 
-<tag:notify />
+<?php echo $this->notify ?>
 
 <table width="100%" border="0" cellpadding="2" cellspacing="0">
   <tr class="header">
     <td class="header">
-      <gettext>Summary</gettext>
+      <?php echo _("Summary") ?>
     </td>
   </tr>
 </table>
@@ -16,37 +16,37 @@
 <table width="100%" border="0" cellpadding="2" cellspacing="0">
   <tr>
     <td class="smallheader" width="50%">
-      <gettext>New faxes</gettext> <strong><tag:in_faxes /></strong>
+      <?php echo _("New faxes") ?> <strong><?php echo $this->in_faxes ?></strong>
     </td><td class="smallheader" width="50%">
-      <gettext>Faxes waiting to be sent</gettext> <strong><tag:out_faxes /></strong>
+      <?php echo _("Faxes waiting to be sent") ?> <strong><?php echo $this->out_faxes ?></strong>
     </td>
   </tr><tr>
     <td>
-      <if:inbox>
+<?php if (!empty($this->inbox)): ?>
       <table width="100%" border="0" cellpadding="2" cellspacing="1">
-        <loop:inbox>
+<?php foreach ($this->inbox as $item): ?>
         <tr>
           <td>
           </td><td>
-            <tag:inbox.owner />
+            <?php echo $item['owner'] ?>
           </td>
         </tr>
-        </loop:inbox>
+<?php endforeach ?>
       </table>
-      </if:inbox>
+<?php endif ?>
     </td><td>
-      <if:outbox>
+<?php if (!empty($this->outbox)): ?>
       <table width="100%" border="0" cellpadding="2" cellspacing="1">
-        <loop:outbox>
+<?php foreach ($this->outbox as $item): ?>
         <tr class="item">
           <td>
           </td><td>
-            <tag:outbox.owner />
+            <?php echo $item['owner'] ?>
           </td>
         </tr>
-        </loop:outbox>
+<?php endforeach ?>
       </table>
-      </if:outbox>
+<?php endif ?>
     </td>
   </tr>
 </table>

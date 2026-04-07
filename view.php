@@ -36,17 +36,17 @@ if (is_a($fax, 'PEAR_Error')) {
 $pages = Hylax::getPages($fax_id, $fax['fax_pages']);
 
 /* Set up template. */
-$template = $injector->createInstance('Horde_Template');
-$template->set('form', '');
-$template->set('pages', $pages);
-$template->set('menu', Hylax::getMenu('string'));
+$view = new Horde_View(['templatePath' => HYLAX_TEMPLATES . '/fax']);
+$view->form = '';
+$view->pages = $pages;
+$view->menu = Hylax::getMenu('string');
 
 Horde::startBuffer();
 $notification->notify(array('listeners' => 'status'));
-$template->set('notify', Horde::endBuffer());
+$view->notify = Horde::endBuffer();
 
 $page_output->header(array(
     'title' => _("View Fax")
 ));
-echo $template->fetch(HYLAX_TEMPLATES . '/fax/fax.html');
+echo $view->render('fax');
 $page_output->footer();

@@ -46,16 +46,16 @@ $form->addVariable(_("Subject"), 'subject', 'text', false, false, null, array(fa
 $form->addVariable(_("Comment"), 'comment', 'longtext', false, false, null, array(4, 80));
 
 /* Set up template. */
-$template = $injector->createInstance('Horde_Template');
-$template->set('form', '');
-$template->set('menu', Hylax::getMenu('string'));
+$view = new Horde_View(['templatePath' => HYLAX_TEMPLATES . '/compose']);
+$view->form = '';
+$view->menu = Hylax::getMenu('string');
 
 Horde::startBuffer();
 $notification->notify(array('listeners' => 'status'));
-$template->set('notify', Horde::endBuffer());
+$view->notify = Horde::endBuffer();
 
 $page_output->header();
-echo $template->fetch(HYLAX_TEMPLATES . '/compose/compose.html');
+echo $view->render('compose');
 $renderer = new Horde_Form_Renderer();
 $form->renderActive($renderer, $vars, Horde::selfURL(), 'post');
 $page_output->footer();

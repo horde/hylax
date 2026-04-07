@@ -84,20 +84,20 @@ foreach ($base_folders as $key => $value) {
 }
 
 /* Set up template. */
-$template = $injector->createInstance('Horde_Template');
+$view = new Horde_View(['templatePath' => HYLAX_TEMPLATES . '/folder']);
 if ($folder == 'archive') {
-    $template->set('folder_name', $path);
+    $view->folder_name = $path;
 } else {
-    $template->set('folder_name', $base_folders[$folder]);
+    $view->folder_name = $base_folders[$folder];
 }
-$template->set('folder', $folder_list, true);
-$template->set('actions', $actions);
-$template->set('menu', Hylax::getMenu('string'));
+$view->folder = $folder_list;
+$view->actions = $actions;
+$view->menu = Hylax::getMenu('string');
 
 Horde::startBuffer();
 $notification->notify(array('listeners' => 'status'));
-$template->set('notify', Horde::endBuffer());
+$view->notify = Horde::endBuffer();
 
 $page_output->header();
-echo $template->fetch(HYLAX_TEMPLATES . '/folder/folder.html');
+echo $view->render('folder');
 $page_output->footer();
