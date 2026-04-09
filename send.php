@@ -61,17 +61,17 @@ $form->renderActive($renderer, $vars, Horde::url('send.php'), 'post');
 $send_form = Horde::endBuffer();
 
 /* Set up template. */
-$template = $injector->createInstance('Horde_Template');
-$template->set('form', $send_form);
-$template->set('pages', $pages);
-$template->set('menu', $menu->getMenu());
+$view = new Horde_View(['templatePath' => HYLAX_TEMPLATES . '/fax']);
+$view->form = $send_form;
+$view->pages = $pages;
+$view->menu = $menu->getMenu();
 
 Horde::startBuffer();
 $notification->notify(array('listeners' => 'status'));
-$template->set('notify', Horde::endBuffer());
+$view->notify = Horde::endBuffer();
 
 $page_output->header(array(
     'title' => $title
 ));
-echo $template->fetch(HYLAX_TEMPLATES . '/fax/fax.html');
+echo $view->render('fax');
 $page_output->footer();

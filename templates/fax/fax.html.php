@@ -1,21 +1,21 @@
 <div id="menu">
- <tag:menu />
+ <?php echo $this->menu ?>
 </div>
 <br />
 
-<tag:notify />
+<?php echo $this->notify ?>
 
-<tag:form />
+<?php echo $this->form ?>
 <br />
 <table width="100%" border="0" cellpadding="2" cellspacing="1">
   <tr class="smallheader" align="center">
     <td>
-      <gettext>Pages</gettext>
+      <?php echo _("Pages") ?>
     </td>
   </tr><tr>
     <td class="previewpages">
-    <loop:pages><tag:pages />
-</loop:pages>
+    <?php foreach ($this->pages as $page): ?><?php echo $page ?>
+<?php endforeach ?>
     </td>
   </tr>
 </table>
