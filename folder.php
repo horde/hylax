@@ -61,7 +61,7 @@ foreach ($folder_list as $key => $value) {
     $i = $i ? 0 : 1;
 
     /* Format date. */
-    $folder_list[$key]['fax_created'] = strftime('%d/%m/%Y %H:%M', $value['fax_created']);
+    $folder_list[$key]['fax_created'] = \Horde\Date\Format::formatDate($value['fax_created'], '%d/%m/%Y %H:%M', $GLOBALS['language'] ?? 'en_US');
 
     if (empty($value['fax_number']) && $value['fax_type'] != 0) {
         $url = $send_url->copy()->add('fax_id', $value['fax_id']);
